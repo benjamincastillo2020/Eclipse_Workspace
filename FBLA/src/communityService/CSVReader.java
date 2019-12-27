@@ -9,19 +9,20 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@printStudents
 public class CSVReader {
 
     public static void main(String... args) {
-        List<student> students = readStudentsFromCSV("students.csv");
+    	List<student> students = readStudentsFromCSV("students.csv");
 
         // let's print all the person read from CSV file
         for (student S : students) {
+        	
             System.out.println(S);
         }
     }
 
-    private static List<student> readStudentsFromCSV(String fileName) {
+    static List<student> readStudentsFromCSV(String fileName) {
         List<student> students = new ArrayList<>();
         Path pathToFile = Paths.get(fileName);
 
@@ -43,7 +44,7 @@ public class CSVReader {
 
                 student student = createStudent(attributes);
 
-                // adding book into ArrayList
+                // adding student into ArrayList
                 students.add(student);
 
                 // read next line before looping
